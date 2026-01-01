@@ -46,8 +46,8 @@ function App() {
         howItWorksId="how-it-works"
         safetySecurityId="safety-and-security"
         supportId="support"
-        loginPath="/login"
-        registerPath="/register"
+        loginPath="/user/login"
+        registerPath="/user/register"
       />
 
       {/* HERO SECTION */}
