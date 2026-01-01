@@ -62,7 +62,7 @@ export default function Header({
         {/* Logo */}
         <h1 className="font-bold text-xl md:text-2xl lg:text-3xl text-indigo-900 flex items-center">
           Trade
-          <img src={LogoText} alt="logo" className="w-6 md:w-7 lg:w-8 mx-1" />
+          <img src={LogoText} alt="logo" className="w-6 md:w-7 lg:w-8" />
           roof
         </h1>
 
