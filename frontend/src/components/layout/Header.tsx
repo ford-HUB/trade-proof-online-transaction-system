@@ -2,52 +2,90 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import LogoText from "../../../public/logo-text.png";
 
-export default function Header() {
+interface HeaderProps {
+  homeId?: string;
+  howItWorksId?: string;
+  safetySecurityId?: string;
+  supportId?: string;
+  loginPath?: string;
+  registerPath?: string;
+}
+
+interface NavItem {
+  name: string;
+  target?: string;
+  path?: string;
+  isButton?: boolean;
+}
+
+export default function Header({
+  homeId,
+  howItWorksId,
+  safetySecurityId,
+  supportId,
+  loginPath,
+  registerPath,
+}: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const navItems = [
-    { name: "Home", path: "/" },
-    { name: "How It Works", path: "/" },
-    { name: "Safety & Security", path: "/" },
-    { name: "Support", path: "/" },
-    { name: "Login", path: "/" },
-    { name: "Register", path: "/", isButton: true },
+  const navItems: NavItem[] = [
+    { name: "Home", target: homeId },
+    { name: "How It Works", target: howItWorksId },
+    { name: "Safety & Security", target: safetySecurityId },
+    { name: "Support", target: supportId },
+    { name: "Login", path: loginPath },
+    { name: "Register", path: registerPath, isButton: true },
   ];
 
-  return (
-    <header className="shadow-sm w-full px-4 py-4 md:px-6 lg:px-8">
-      <div className="flex justify-between items-center">
-        {/* Logo Section */}
-        <div className="flex items-center">
-          <h1 className="font-bold text-xl md:text-2xl lg:text-3xl text-indigo-900 flex items-center">
-            Trade
-            <span>
-              <img 
-                src={LogoText} 
-                alt="logo" 
-                className="w-6 md:w-7 lg:w-8"
-              />
-            </span>
-            roof
-          </h1>
-        </div>
+  const scrollToSection = (id?: string) => {
+  if (!id) return;
 
-        {/* Desktop & Tablet Navigation */}
-        <nav className="hidden md:flex items-center">
-          <ul className="flex items-center gap-4 lg:gap-6">
+  const section = document.getElementById(id);
+  if (!section) return;
+
+  const headerOffset = 96; // height of sticky header
+  const elementPosition = section.getBoundingClientRect().top;
+  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+  window.scrollTo({
+    top: offsetPosition,
+    behavior: "smooth",
+  });
+
+  setIsMenuOpen(false);
+};
+
+
+  return (
+    <header className="shadow-sm w-full px-4 py-4 md:px-6 lg:px-8 sticky top-0 bg-white z-50">
+      <div className="flex justify-between items-center">
+        {/* Logo */}
+        <h1 className="font-bold text-xl md:text-2xl lg:text-3xl text-indigo-900 flex items-center">
+          Trade
+          <img src={LogoText} alt="logo" className="w-6 md:w-7 lg:w-8 mx-1" />
+          roof
+        </h1>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex">
+          <ul className="flex items-center gap-6">
             {navItems.map((item) => (
               <li key={item.name}>
-                {item.isButton ? (
-                  <Link 
-                    to={item.path}
-                    className="bg-indigo-900 text-white px-4 py-2 rounded-md font-semibold hover:bg-indigo-800 transition-colors duration-200 text-sm lg:text-base"
+                {item.target ? (
+                  <button
+                    onClick={() => scrollToSection(item.target)}
+                    className="text-indigo-900 font-semibold hover:text-indigo-800 hover:underline transition"
                   >
                     {item.name}
-                  </Link>
+                  </button>
                 ) : (
-                  <Link 
-                    to={item.path}
-                    className="text-indigo-900 font-semibold hover:text-indigo-800 hover:underline transition-colors duration-200 text-sm lg:text-base"
+                  <Link
+                    to={item.path!}
+                    className={
+                      item.isButton
+                        ? "bg-indigo-900 text-white px-4 py-2 rounded-md font-semibold hover:bg-indigo-800 transition"
+                        : "text-indigo-900 font-semibold hover:text-indigo-800 hover:underline transition"
+                    }
                   >
                     {item.name}
                   </Link>
@@ -57,35 +95,40 @@ export default function Header() {
           </ul>
         </nav>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Toggle */}
         <button
-          className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5"
+          className="md:hidden w-8 h-8 flex flex-col justify-center items-center space-y-1.5"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
-          <span className={`block w-6 h-0.5 bg-indigo-900 transition-transform duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-          <span className={`block w-6 h-0.5 bg-indigo-900 transition-opacity duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-          <span className={`block w-6 h-0.5 bg-indigo-900 transition-transform duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+          <span className={`w-6 h-0.5 bg-indigo-900 transition ${isMenuOpen && "rotate-45 translate-y-2"}`} />
+          <span className={`w-6 h-0.5 bg-indigo-900 transition ${isMenuOpen && "opacity-0"}`} />
+          <span className={`w-6 h-0.5 bg-indigo-900 transition ${isMenuOpen && "-rotate-45 -translate-y-2"}`} />
         </button>
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
-        <nav className="pt-4 pb-6 border-t border-gray-200 mt-4">
+      {isMenuOpen && (
+        <nav className="md:hidden mt-4 border-t pt-4">
           <ul className="flex flex-col space-y-4">
             {navItems.map((item) => (
-              <li key={item.name} onClick={() => setIsMenuOpen(false)}>
-                {item.isButton ? (
-                  <Link 
-                    to={item.path}
-                    className="block bg-indigo-900 text-white px-4 py-3 rounded-md font-semibold hover:bg-indigo-800 transition-colors duration-200 text-center"
+              <li key={item.name}>
+                {item.target ? (
+                  <button
+                    onClick={() => scrollToSection(item.target)}
+                    className="block w-full text-left text-indigo-900 font-semibold hover:underline"
                   >
                     {item.name}
-                  </Link>
+                  </button>
                 ) : (
-                  <Link 
-                    to={item.path}
-                    className="block text-indigo-900 font-semibold hover:text-indigo-800 hover:underline transition-colors duration-200 py-2"
+                  <Link
+                    to={item.path!}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={
+                      item.isButton
+                        ? "block bg-indigo-900 text-white px-4 py-3 rounded-md font-semibold text-center"
+                        : "block text-indigo-900 font-semibold hover:underline"
+                    }
                   >
                     {item.name}
                   </Link>
@@ -94,7 +137,7 @@ export default function Header() {
             ))}
           </ul>
         </nav>
-      </div>
+      )}
     </header>
   );
 }
