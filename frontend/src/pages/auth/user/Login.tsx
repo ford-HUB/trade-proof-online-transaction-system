@@ -53,6 +53,7 @@ export default function LoginUser() {
           onSubmit={handleSubmit} 
           className="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100 backdrop-blur-sm bg-white/95"
         >
+
           {/* Email Field */}
           <div className="mb-6">
             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
@@ -181,7 +182,7 @@ export default function LoginUser() {
             <p className="text-sm text-gray-600">
               Don't have an account?{" "}
               <Link 
-                to="/register" 
+                to="/user/register" 
                 className="font-semibold text-indigo-600 hover:text-indigo-500 transition-colors"
               >
                 Create one now
