@@ -26,7 +26,7 @@ export default function LoginUser() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-violet-50 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-indigo-50 via-white to-violet-50 p-4">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
@@ -51,7 +51,7 @@ export default function LoginUser() {
         {/* Login Card */}
         <form 
           onSubmit={handleSubmit} 
-          className="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100 backdrop-blur-sm bg-white/95"
+          className="rounded-2xl shadow-2xl p-8 border border-gray-100 backdrop-blur-sm bg-white/95"
         >
 
           {/* Email Field */}
@@ -83,7 +83,7 @@ export default function LoginUser() {
                 Password
               </label>
               <Link 
-                to="/forgot-password" 
+                to="/user/forgot-password" 
                 className="text-sm font-medium text-indigo-600 hover:text-indigo-500 transition-colors"
               >
                 Forgot password?
@@ -135,7 +135,7 @@ export default function LoginUser() {
           {/* Submit Button */}
           <button
             type="submit"
-            className="group w-full bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white py-3 px-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+            className="group w-full bg-linear-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white py-3 px-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
           >
             <LogIn className="w-5 h-5" />
             Sign In

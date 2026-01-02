@@ -51,7 +51,7 @@ export default function VerificationUser() {
         {/* Login Card */}
         <form 
           onSubmit={handleSubmit} 
-          className="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100 backdrop-blur-sm bg-white/95"
+          className="rounded-2xl shadow-2xl p-8 border border-gray-100 backdrop-blur-sm bg-white/95"
         >
 
           {/* Email Field */}

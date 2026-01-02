@@ -4,6 +4,7 @@ import App from "./App";
 import LoginUser from "./pages/auth/user/Login";
 import RegisterUser from "./pages/auth/user/Register";
 import VerificationUser from "./pages/auth/user/Verification";
+import ForgotPassword from "./pages/auth/user/Forgot-password";
 
 const Router: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const Router: React.FC = () => {
       <Route path="/user/login" element={<LoginUser />} />
       <Route path="/user/register" element={<RegisterUser />} />
       <Route path="/user/register/verify" element={<VerificationUser />} />
+      <Route path="/user/forgot-password" element={<ForgotPassword />} />
     </Routes>
   )
 }
