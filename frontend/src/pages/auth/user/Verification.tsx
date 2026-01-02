@@ -82,7 +82,7 @@ export default function VerificationUser() {
                 value={formData.otp}
                 onChange={handleChange}
                 className="block w-full pl-10 pr-3 py-3 text-center border border-gray-300 rounded-xl bg-gray-50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:bg-white transition-all duration-200"
-                placeholder="00000000"
+                placeholder="Enter Verification Code"
               />
             </div>
           </div>
