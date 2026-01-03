@@ -52,7 +52,7 @@ export default function SidebarUser({ collapsed = false }: SidebarProps) {
       <div className="p-4 border-t border-gray-200">
         <button className="w-full flex items-center px-4 py-3 rounded-lg text-red-500 hover:bg-gray-100 transition-all duration-200">
           <LogOut size={20} />
-          {!collapsed && <span className="ml-3 font-medium">Logout</span>}
+          {!collapsed && <span className="ml-3 font-medium">Logout </span>}
         </button>
 
         {/* User Profile */}
