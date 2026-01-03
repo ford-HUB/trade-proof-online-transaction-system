@@ -1,12 +1,12 @@
 import React from "react";
 import {Routes, Route} from "react-router-dom";
 import App from "./App";
-import LoginUser from "./pages/auth/user/Login";
-import RegisterUser from "./pages/auth/user/Register";
-import VerificationUser from "./pages/auth/user/Verification";
-import ForgotPasswordUser from "./pages/auth/user/Forgot-password";
-import LoginAdmin from "./pages/auth/admin/Login";
-import ForgotPasswordAdmin from "./pages/auth/admin/Forgot-password";
+import LoginUser from "./pages/user/auth/Login";
+import RegisterUser from "./pages/user/auth/Register";
+import VerificationUser from "./pages/user/auth/Verification";
+import ForgotPasswordUser from "./pages/user/auth/Forgot-password";
+import LoginAdmin from "./pages/admin/auth/Login";
+import ForgotPasswordAdmin from "./pages/admin/auth/Forgot-password";
 
 const Router: React.FC = () => {
   return (
