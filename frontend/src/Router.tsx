@@ -7,6 +7,7 @@ import VerificationUser from "./pages/user/auth/Verification";
 import ForgotPasswordUser from "./pages/user/auth/Forgot-password";
 import LoginAdmin from "./pages/admin/auth/Login";
 import ForgotPasswordAdmin from "./pages/admin/auth/Forgot-password";
+import DashboardUser from "./pages/user/Dashboard";
 
 const Router: React.FC = () => {
   return (
@@ -22,6 +23,9 @@ const Router: React.FC = () => {
       {/* ADMIN AUTH */}
       <Route path="/admin/login" element={<LoginAdmin />} />
       <Route path="/admin/forgot-password" element={<ForgotPasswordAdmin />} />
+
+      {/* USER PAGES */}
+      <Route path="/dashboard" element={<DashboardUser />} />
     </Routes>
   )
 }
