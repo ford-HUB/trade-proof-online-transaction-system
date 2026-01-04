@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Verify your identity</title>
+</head>
+<body style="margin:0; padding:0; background:#f6f8fa; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">
+
+  <table width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+      <td align="center" style="padding:40px 16px;">
+
+        <!-- Container -->
+        <table width="100%" cellpadding="0" cellspacing="0" style="max-width:520px; background:#ffffff; border:1px solid #d0d7de; border-radius:6px;">
+          
+          <!-- Header -->
+          <tr>
+            <td align="center" style="padding:24px 24px 16px;">
+              <!-- Logo -->
+              <img src="https://res.cloudinary.com/dhkp7er6i/image/upload/v1767265972/trade_proof_logo_iv7dov.png"
+                   width="32"
+                   alt="Logo"
+                   style="margin-bottom:12px;" />
+
+              <h1 style="margin:0; font-size:22px; font-weight:400; color:#24292f;">
+                Please verify your identity, <strong>{{receiver_name}}</strong>
+              </h1>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding:24px; font-size:14px; color:#24292f; line-height:1.5;">
+              <p style="margin-top:0;">
+                Here is your <strong>Trade Proof</strong> verification code:
+              </p>
+
+              <!-- Code box -->
+              <div style="
+                text-align:center;
+                font-size:32px;
+                letter-spacing:6px;
+                font-weight:600;
+                padding:16px;
+                margin:20px 0;
+                border:1px solid #d0d7de;
+                border-radius:6px;
+                background:#f6f8fa;
+              ">
+                {{token}}
+              </div>
+
+              <p>
+                This code is valid for <strong>15 minutes</strong> and can only be used once.
+              </p>
+
+              <p>
+                <strong>Please don't share this code with anyone</strong>; we'll never ask for it on the phone or via email.
+              </p>
+
+              <p style="margin-bottom:0;">
+                Thanks,<br />
+                <strong>The Trade Proof Team</strong>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+
+        <!-- Footer dots -->
+        <div style="margin-top:12px; color:#8c959f; font-size:20px;">•••</div>
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

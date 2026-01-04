@@ -9,7 +9,9 @@
 
         "strict": true,
         "skipLibCheck": true
+
     },
-    "include": ["src/**/*.ts"],
-    "exclude": ["node_modules"]
+    "include": ["src/**/*.ts", "src/**/*.d.ts"],
+    "files": ["src/@types/express.d.ts"],
+    "exclude": ["node_modules"],
 }
