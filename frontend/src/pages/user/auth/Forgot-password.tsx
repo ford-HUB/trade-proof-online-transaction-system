@@ -1,7 +1,7 @@
 import { LogIn, Mail, Lock, Eye, EyeOff, ArrowRight, KeyRound } from "lucide-react";
-import { useState } from "react";
-import LogoImage from "../../../../public/logo.png"
+import React, { useState } from "react";
 import { toast } from "sonner";
+import assets from "../../../assets/asset";
 
 export default function ForgotPasswordUser() {
   const [showPassword, setShowPassword] = useState(false);
@@ -12,13 +12,13 @@ export default function ForgotPasswordUser() {
     otp: "",
   });
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     console.log("Login submitted:", formData);
     // Add your login logic here
   };
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -26,7 +26,7 @@ export default function ForgotPasswordUser() {
     }));
   };
 
-  const handleRequestOtp = (e: any) => {
+  const handleRequestOtp = (e: React.MouseEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
     if (formData.email == "" || formData.email === null) {
@@ -50,7 +50,7 @@ export default function ForgotPasswordUser() {
         {/* Header with logo */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center rounded-2xl bg-transparent border-4 border-[#1F1E57] mb-4 shadow-lg p-1">
-            <img src={LogoImage} alt="logo-image" className="w-15 h-16"/>
+            <img src={assets.LogoImage} alt="logo-image" className="w-15 h-16"/>
           </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             Reset Your Password

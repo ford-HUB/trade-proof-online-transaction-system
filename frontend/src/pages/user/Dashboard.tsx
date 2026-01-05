@@ -1,4 +1,4 @@
-import SidebarUser from "@/components/layout/user/Sidebar"
+import SidebarUser from "@/layout/user/Sidebar"
 
 export default function DashboardUser() {
   return (

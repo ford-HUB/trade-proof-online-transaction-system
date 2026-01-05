@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import LogoImage from "../../../../public/logo.png";
+import assets from "../../../assets/asset";
 
 export default function RegisterUser() {
   const [showPassword, setShowPassword] = useState(false);
@@ -48,7 +48,7 @@ export default function RegisterUser() {
         {/* Header with logo */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center rounded-2xl bg-transparent border-4 border-[#1F1E57] mb-4 shadow-lg p-1">
-            <img src={LogoImage} alt="logo-image" className="w-15 h-16" />
+            <img src={assets.LogoImage} alt="logo-image" className="w-15 h-16" />
           </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             Create your account
@@ -273,7 +273,7 @@ export default function RegisterUser() {
             <p className="text-sm text-gray-600">
               Already have an account?{" "}
               <Link
-                to="/user/login"
+                to="/login"
                 className="font-semibold text-indigo-600 hover:text-indigo-500 transition-colors"
               >
                 Sign in

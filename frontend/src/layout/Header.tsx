@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import LogoText from "../../../public/logo-text.png";
+import asset from "@/assets/asset";
 
 interface HeaderProps {
   homeId?: string;
@@ -62,7 +62,7 @@ export default function Header({
         {/* Logo */}
         <h1 className="font-bold text-xl md:text-2xl lg:text-3xl text-indigo-900 flex items-center">
           Trade
-          <img src={LogoText} alt="logo" className="w-6 md:w-7 lg:w-8" />
+          <img src={asset.Logo} alt="logo" className="w-6 md:w-7 lg:w-8" />
           roof
         </h1>
 

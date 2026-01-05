@@ -1,7 +1,7 @@
 import { LogIn, Mail, Lock, Eye, EyeOff, ArrowRight, Shield } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import LogoImage from "../../../../public/logo.png"
+import assets from "../../../assets/asset";
 
 export default function LoginUser() {
   const [showPassword, setShowPassword] = useState(false);
@@ -38,7 +38,7 @@ export default function LoginUser() {
         {/* Header with logo */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center rounded-2xl bg-transparent border-4 border-[#1F1E57] mb-4 shadow-lg p-1">
-            <img src={LogoImage} alt="logo-image" className="w-15 h-16"/>
+            <img src={assets.LogoImage} alt="logo-image" className="w-15 h-16"/>
           </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             Welcome Back
@@ -83,7 +83,7 @@ export default function LoginUser() {
                 Password
               </label>
               <Link 
-                to="/user/forgot-password" 
+                to="/forgot-password" 
                 className="text-sm font-medium text-indigo-600 hover:text-indigo-500 transition-colors"
               >
                 Forgot password?
@@ -182,7 +182,7 @@ export default function LoginUser() {
             <p className="text-sm text-gray-600">
               Don't have an account?{" "}
               <Link 
-                to="/user/register" 
+                to="/register" 
                 className="font-semibold text-indigo-600 hover:text-indigo-500 transition-colors"
               >
                 Create one now

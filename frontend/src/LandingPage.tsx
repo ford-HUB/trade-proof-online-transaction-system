@@ -1,5 +1,5 @@
-import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
+import Header from "./layout/Header";
+import Footer from "./layout/Footer";
 import {
   LockKeyhole,
   ShieldCheck,
@@ -13,7 +13,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 
-function App() {
+const LandingPage = () => {
   const cardItems = [
     {
       icon: LockKeyhole,
@@ -96,8 +96,8 @@ function App() {
         howItWorksId="how-it-works"
         safetySecurityId="safety-and-security"
         supportId="support"
-        loginPath="/user/login"
-        registerPath="/user/register"
+        loginPath="/login"
+        registerPath="/register"
       />
 
       {/* HERO SECTION */}
@@ -343,4 +343,4 @@ function App() {
   );
 }
 
-export default App;
+export default LandingPage;

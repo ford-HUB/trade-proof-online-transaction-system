@@ -2,7 +2,7 @@ import {
   LayoutDashboard, Users, ShoppingBag, ShieldCheck, AlertTriangle,
   Megaphone, FileText, Settings, LogOut
 } from 'lucide-react';
-import LogoText from "../../../../public/logo-text.png"
+import assets from "../../assets/asset";
 
 interface SidebarProps {
   collapsed?: boolean;
@@ -25,8 +25,8 @@ export default function SidebarAdmin({ collapsed = false }: SidebarProps) {
       
       {/* Logo */}
       <div className="p-6 border-b border-gray-200 flex items-center">
-        <h1 className="text-2xl font-bold text-gray-800 flex items-center">
-          Trade<span><img src={LogoText} alt="logo-text" className='w-8'/></span>roof
+          <h1 className="text-2xl font-bold text-gray-800 flex items-center">
+          Trade<span><img src={assets.Logo} alt="logo-text" className='w-8'/></span>roof
         </h1>
       </div>
 
